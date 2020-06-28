@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orkney';
+    src: url('Orkney-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+

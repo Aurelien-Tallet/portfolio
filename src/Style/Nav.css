@@ -1,0 +1,29 @@
+
+nav {
+    display: flex;
+    width: auto;
+    height:auto;
+    justify-content: space-evenly;
+    position: fixed;
+    top:5%;
+    right:5%;
+  }
+ .nav{
+    text-decoration: none;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:whitesmoke;
+    margin:1em;
+  }
+
+  .NavCtnr{
+    position: fixed;
+    bottom: auto;
+    bottom: 5%;
+    left:5%;
+
+  }
+  .nav.current{
+    display: none;
+    color:black;
+  }

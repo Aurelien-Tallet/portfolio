@@ -1,0 +1,45 @@
+.Home {
+    text-align: center;
+    background-color: black;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Animations */
+@keyframes typing {
+
+    from { width: 0 }
+  
+    to { width: 100% }
+  }
+  @keyframes cursor {
+
+    from{border-right-color: #FF891E;}
+     to{border-right-color: transparent;}
+  }
+  /* Animations */
+
+  .title {
+    font-size: 3vmax;
+    text-align: center;
+    letter-spacing: 0.38em;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow: hidden;
+    animation: cursor 0.7s infinite steps(50,end), typing 1s  steps(50, end);
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding:0.2em 0 0;
+    border-right:3px #FF891E solid;
+  }
+  
+  .Home{
+    font-family: 'Orkney';
+    color:whitesmoke;
+  }
+  
+  
+  
+
