@@ -7,6 +7,7 @@ nav {
     position: fixed;
     top:5%;
     right:5%;
+    z-index: 99999;
   }
  .nav{
     text-decoration: none;
@@ -14,9 +15,11 @@ nav {
     -moz-osx-font-smoothing:grayscale;
     color:whitesmoke;
     margin:1em;
+    z-index: 99999;
   }
 
   .NavCtnr{
+    z-index: 99999;
     position: fixed;
     bottom: auto;
     bottom: 5%;
@@ -24,6 +27,7 @@ nav {
 
   }
   .nav.current{
+    z-index: 99999;
     display: none;
     color:black;
   }
