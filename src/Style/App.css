@@ -4,15 +4,20 @@
   font-weight: bold;
   font-style: normal;
 }
-*, ::after,::before{
+
+*, ::after, ::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   outline: 0;
-
-
 }
+
+.App {
+  position: relative;
+}
+
 body {
+  /* position: relative; */
   margin: 0;
   padding: 0;
   font-family: 'Orkney';
@@ -26,39 +31,62 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-
 .language-switch {
-  border:1px solid rgb(63, 63, 63);
-  background:none;
+  border: 1px solid rgb(63, 63, 63);
+  background: none;
   position: fixed;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  bottom:50px;
+  bottom: 50px;
   font-weight: lighter;
   font-size: 15px;
   left: 60px;
   font-family: 'Orkney';
-  padding-top:4px;
+  padding-top: 4px;
   font-weight: 550;
-  color:whitesmoke;
+  color: whitesmoke;
   cursor: pointer;
   transition: font-size .2s ease-in-out;
   outline: 0;
 }
-.language-switch:hover{
+
+.language-switch:hover {
   transition: .2s ease-in-out;
   font-size: 20px;
   font-weight: 700;
   outline: 0;
 }
-.language-switch:active{
+
+.language-switch:active {
   font-weight: 600;
   font-size: 15px;
   outline: 0;
-
+}
+.slide-enter,
+.slide-exit {
+  transition: transform 1000ms ease-out;
 }
 
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0%);
+}
+
+.slide-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
+}
 ::-webkit-scrollbar {
   display: none;
 }

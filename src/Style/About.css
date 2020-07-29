@@ -1,9 +1,17 @@
 .about {
-    text-align: center;
-    background-color: rgb(13, 117, 117);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+position: relative;
+  text-align: center;
+  background-color: #f8be51;
+  width: 100vw;
+  height: 100vh;
+}
+.about p {
+  text-align: justify;
+  font-size: 3em;
+  text-transform: uppercase;
+  position: absolute;
+  color:white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

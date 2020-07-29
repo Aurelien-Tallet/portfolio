@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Style/About.css';
 import { LangContext } from './LangContext';
 
@@ -6,10 +6,13 @@ import { LangContext } from './LangContext';
 
 const About = () => {
     const lang = useContext(LangContext)
-    
+    useEffect(()=>{
+        console.log('monter About')
+        return () => console.log('démonter About')
+     },[])
     return (
         <div className="about">
-            <section style={{width:"20vw",height:"20vh",border:"1px solid black"}}>{ lang ? 'ABOUT' : 'À propos'}</section>
+            <p>Développeur Front-end basé à Paris, je travaille avec : </p>
         </div>
         
     )

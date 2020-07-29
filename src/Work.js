@@ -2,38 +2,47 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Style/Work.css';
 import { LangContext } from './LangContext';
 
-const Home = (props) => {
-    let wheelY = 0
+const Work = (props) => {
+
+    useEffect(()=>{
+        console.log('monter Work')
+        return () => console.log('démonter Work')
+     },[])
+
+
+
     const [draggable, handleDrag] = useState(false)
+    let speed = 4
     const translate = (e, onDrag = false, dragY) => {
-        let speed = 4
-        let y = 0
+        const scrollbar = document.querySelector('.scrollbar-ctnr');
+        const wheel = document.querySelector('.wheel')
         const section1 = document.querySelector(`.section-2`)
         const section2 = document.querySelector(`.section-3`)
-        const wheel = document.querySelector('.wheel')
-        if (onDrag) {
-            y = dragY
-        } else {
-            y = wheelY
+        let rect = scrollbar.getBoundingClientRect();
+        let rectWheel = wheel.getBoundingClientRect();
+        let y = rectWheel.top - rect.top + 15
+        y = Math.round((y * 200) / rect.height)
+        if (onDrag===false) {
             if (e.deltaY > 0) {
-                if (wheelY != 200) {
-                    wheelY += speed
+                if (y != 200) {
+                    y += speed
                 }
             } else {
-                if (wheelY != 0) {
-                    wheelY -= speed
+                if (y != 0) {
+                    y -= speed
                 }
             }
             if (y >= 0 && y <= 200) {
                 wheel.style.transform = `translateY(calc(${(y * 65) / 200}vh - 15px))`
             }
         }
-        if (y <= 100 && y >= 0) {
+        if (y >= 0 && y <= 100) {
             section1.style.transform = `translateY(${y}%)`
-            // console.log('section 1',y)
+            section2.style.transform = `translateY(${-100}%)`
+
         }
-        if (y <= 200 && y >= 100) {
-            // console.log('section 2',y)
+        if (y >= 100 && y <= 200) {
+            section1.style.transform = `translateY(${100}%)`
             section2.style.transform = `translateY(${y - 100}%)`
         }
 
@@ -44,25 +53,36 @@ const Home = (props) => {
         const scrollbar = document.querySelector('.scrollbar-ctnr');
         const wheel = document.querySelector('.wheel');
         let rect = scrollbar.getBoundingClientRect();
-        let y = e.clientY - rect.top;
         let rectWheel = wheel.getBoundingClientRect();
+        let y = e.clientY - rect.top;
         let _Y = rectWheel.top - rect.top + 15
         y = (y * 200) / rect.height;
-        _Y = (_Y * 200) / rect.height
+        _Y = Math.round((_Y * 200) / rect.height)
         if (draggable) {
-
+            if (y < 0) y = 0
+            if (y > 200) y = 200
             if (y >= 0 && y <= 200) {
                 wheel.style.transform = `translateY(calc(${(y * 65) / 200}vh - 15px))`
-                translate(e, true,Math.round(_Y) )
-                console.log(_Y)
+                if(_Y%4===0) translate(e, true, _Y)
             }
         }
+    }
+    const releaseDrag = () =>{
+        const scrollbar = document.querySelector('.scrollbar-ctnr');
+        const wheel = document.querySelector('.wheel');
+        let rect = scrollbar.getBoundingClientRect();
+        let rectWheel = wheel.getBoundingClientRect();
+        let y = rectWheel.top - rect.top + 15
+        y = Math.ceil(Math.round((y * 200) / rect.height)/speed) * speed
+        wheel.style.transform = `translateY(calc(${(y * 65) / 200}vh - 15px))`
+        handleDrag(false)
     }
 
     const lang = useContext(LangContext)
     return (
-        <div className="container" onMouseMove={drag} onMouseUp={() => handleDrag(false)} onWheel={translate}>
-            <div onMouseMove={drag} onMouseDown={() => handleDrag(true)} className='scrollbar-ctnr'>
+        <div className="container" onMouseMove={drag} 
+        onMouseUp={releaseDrag} onWheel={translate}>
+            <div onMouseDown={() => handleDrag(true)} className='scrollbar-ctnr'>
                 <div className='scrollbar'></div>
                 <div className='wheel'></div>
             </div>
@@ -80,4 +100,5 @@ const Home = (props) => {
         </div>
     )
 }
-export default Home
+export default Work
+
